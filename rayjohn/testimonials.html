@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - SPADES Clothing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo"><span class="spade-icon">&#9824;</span> SPADES</div>
+            <div class="nav-toggle" id="navToggle" aria-label="Open navigation" tabindex="0">
+                <span></span><span></span><span></span>
+            </div>
+            <ul id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="mission.html">Mission & Vision</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="designer.html">Web Designer</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="testimonials-section">
+        <h1 class="testimonials-title">Customer Testimonials</h1>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <!-- Simple user icon SVG -->
+                    <svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="11"/><ellipse cx="24" cy="38" rx="15" ry="8"/></svg>
+                </div>
+                <div class="testimonial-quote">
+                    “SPADES Clothing exceeded my expectations! The Urban Utility Shirt is now my go-to for casual days out. Super comfortable and stylish!”
+                </div>
+                <div class="testimonial-author">— Alex R.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="11"/><ellipse cx="24" cy="38" rx="15" ry="8"/></svg>
+                </div>
+                <div class="testimonial-quote">
+                    “The Goody & Classy Urban Tee is a conversation starter. I love the unique design and the quality is top-notch.”
+                </div>
+                <div class="testimonial-author">— Jamie L.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="11"/><ellipse cx="24" cy="38" rx="15" ry="8"/></svg>
+                </div>
+                <div class="testimonial-quote">
+                    “Eco Denim Jacket fits perfectly and I get compliments every time I wear it. Will definitely buy again!”
+                </div>
+                <div class="testimonial-author">— Chris D.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="11"/><ellipse cx="24" cy="38" rx="15" ry="8"/></svg>
+                </div>
+                <div class="testimonial-quote">
+                    “Fast shipping and excellent customer service. The Double Persona T-Shirt feels great and looks even better in person!”
+                </div>
+                <div class="testimonial-author">— Pat S.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                    <svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="11"/><ellipse cx="24" cy="38" rx="15" ry="8"/></svg>
+                </div>
+                <div class="testimonial-quote">
+                    “I appreciate the attention to detail in SPADES clothing. The Yin Yang Attitude Tee is my new favorite!”
+                </div>
+                <div class="testimonial-author">— Sam K.</div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="logo"><span class="spade-icon">&#9824;</span> SPADES</div>
+            <p>&copy; 2025 SPADES Clothing. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+    // Simple form submission for testimonials (demo only)
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('testimonial-success').style.display = 'block';
+        document.getElementById('testimonialInput').value = '';
+        document.getElementById('testimonialAuthor').value = '';
+        setTimeout(() => {
+            document.getElementById('testimonial-success').style.display = 'none';
+        }, 3500);
+    });
+    </script>
+</body>
+</html>

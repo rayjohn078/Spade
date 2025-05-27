@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SPADES Clothing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo"><span class="spade-icon">&#9824;</span> SPADES</div>
+            <div class="nav-toggle" id="navToggle" aria-label="Open navigation" tabindex="0">
+                <span></span><span></span><span></span>
+            </div>
+            <ul id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="mission.html">Mission & Vision</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="designer.html">Web Designer</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="contact-section">
+        <h1 class="contact-title">Get In Touch</h1>
+        <form class="contact-form" id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Type your message here..."></textarea>
+
+            <button type="submit">Send Message</button>
+            <div id="contact-success" style="display:none; color:#42b983; margin-top:8px; text-align:center;">
+                Thank you for contacting us! We'll get back to you soon.
+            </div>
+        </form>
+        <div class="contact-info">
+            <p>
+                <span class="contact-highlight">Email:</span> support@spadesclothing.com<br>
+                <span class="contact-highlight">Phone:</span> +63 123-123-1234
+            </p>
+            <p>
+                Mabalacat Pampangga
+            </p>
+        </div>
+    </section>
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" id="popupClose">&times;</span>
+            <p>Thank you for your message!</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="logo"><span class="spade-icon">&#9824;</span> SPADES</div>
+            <p>&copy; 2025 SPADES Clothing. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+    // Simple form submission for Contact Us (demo only)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('contact-success').style.display = 'block';
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        setTimeout(() => {
+            document.getElementById('contact-success').style.display = 'none';
+        }, 3500);
+
+        // Show popup
+        document.getElementById('popup-overlay').style.display = 'flex';
+    });
+
+    // Close popup logic
+    document.getElementById('popupClose').onclick = function() {
+        document.getElementById('popup-overlay').style.display = 'none';
+    };
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('popup-overlay')) {
+            document.getElementById('popup-overlay').style.display = 'none';
+        }
+    };
+    </script>
+</body>
+</html>
