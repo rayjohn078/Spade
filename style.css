@@ -1,0 +1,358 @@
+/* 
+    General Reset and Base Styles
+    - Resets default browser styles and sets core colors and fonts for a dark+gold theme.
+*/
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #181820;
+    color: #f7f7fa;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
+img { max-width: 500px; display: block; border-radius: 10px; margin: 30px; }
+
+/* 
+    Navigation Bar 
+    - Flex layout, gold highlight on active/hover
+*/
+nav { width: 100%; margin-bottom: 30px; }
+nav ul {
+    display: flex; gap: 30px; justify-content: flex-end; list-style: none;
+}
+nav ul li a {
+    color: #f7f7fa;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+nav ul li a.active,
+nav ul li a:hover {
+    background: #ffdb70;
+    color: #23233b;
+}
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 45px;
+}
+.nav-toggle span { width: 25px; height: 3px; background: #ffdb70; display: block; }
+
+/* 
+    Section Titles/Headers 
+    - Consistent gold for all section titles
+*/
+.testimonials-title,
+.contact-title,
+.faq-title,
+.designer-title,
+.news-title {
+    color: #ffce53;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: 1.1px;
+}
+
+/* 
+    Testimonials, Contact, FAQ, Designer, News: Shared Section Style 
+    - Card layout, dark background, gold accents
+*/
+.testimonials-section,
+.contact-section,
+.faq-section,
+.designer-section,
+.news-section {
+    background: #181a20;
+    border-radius: 18px;
+    margin: 38px 0;
+    padding: 42px 0 38px 0;
+    box-shadow: 0 8px 32px rgba(30,100,200,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Testimonials Cards --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+.testimonial-card {
+    background: #22242c;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(30,100,200,0.08);
+    padding: 2.2rem 1.8rem 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+    transition: box-shadow 0.2s;
+}
+.testimonial-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(30,100,200,0.13);
+}
+.testimonial-avatar {
+    width: 74px; height: 74px; border-radius: 50%;
+    background: #181a20; border: 3px solid #ffce53;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+}
+.testimonial-avatar svg { width: 48px; height: 48px; fill: #f6d989; }
+.testimonial-quote { font-size: 1.11rem; color: #fafafc; text-align: center; margin-bottom: 20px; }
+.testimonial-author { color: #ffce53; font-size: 1.05rem; font-weight: 600; margin-top: auto; text-align: center; }
+
+/* --- Contact Form Card --- */
+.contact-form {
+    background: #22242c;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(30,100,200,0.08);
+    padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.contact-form label { color: #fafafc; font-size: 1rem; font-weight: 600; }
+.contact-form input,
+.contact-form textarea {
+    border: 1.5px solid #ffce53;
+    border-radius: 8px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    background: #181a20;
+    color: #fafafc;
+    transition: border-color 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { outline: none; border-color: #ffc107; }
+.contact-form button {
+    background: linear-gradient(90deg, #ffce53 70%, #ffe7a7 100%);
+    color: #23233b;
+    font-weight: 700;
+    padding: 0.8rem 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.contact-form button:hover { background: linear-gradient(90deg, #ffc107 70%, #ffce53 100%); }
+.contact-info { margin-top: 30px; text-align: center; color: #fafafc; font-size: 1.04rem; }
+.contact-info .contact-highlight { color: #ffce53; font-weight: 600; }
+
+/* --- Popup (for contact form) --- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(24,26,32,0.82);
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background: #22242c;
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(30,100,200,0.13);
+    text-align: center;
+    position: relative;
+    color: #fafafc;
+    font-size: 1.22rem;
+    font-family: inherit;
+    min-width: 260px;
+}
+.popup-close {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    color: #ffce53;
+    font-size: 1.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.popup-close:hover { color: #ffc107; }
+
+/* --- FAQs Section --- */
+.faq-list { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 1.5rem; }
+.faq-item {
+    background: #22242c; border-radius: 14px;
+    box-shadow: 0 2px 14px 0 rgba(30,100,200,0.07);
+    padding: 1.4rem 1.8rem 1.2rem 1.8rem; transition: box-shadow 0.2s;
+    cursor: pointer; position: relative;
+}
+.faq-item:hover { box-shadow: 0 6px 20px 0 rgba(30,100,200,0.13); }
+.faq-question {
+    color: #ffce53; font-size: 1.13rem; font-weight: 700;
+    margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between;
+}
+.faq-toggle { color: #ffce53; font-weight: bold; font-size: 1.2rem; margin-left: 10px; transition: transform 0.2s; }
+.faq-answer {
+    color: #fafafc; font-size: 1.04rem; line-height: 1.6;
+    margin-top: 0.3rem; display: none;
+}
+.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-toggle { transform: rotate(90deg); }
+
+/* --- Web Designer Profile Section --- */
+.designer-profile-card {
+    background: #22242c;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(30,100,200,0.08);
+    padding: 2.5rem 2.1rem 2.1rem 2.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    gap: 1.2rem;
+}
+.designer-photo {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: #181a20; border: 4px solid #ffce53;
+    object-fit: cover; margin-bottom: 10px;
+}
+.designer-name { color: #ffce53; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+.designer-background { color: #fafafc; font-size: 1.08rem; margin-bottom: 0.4rem; }
+.designer-reflection-title { color: #f6d989; font-size: 1.14rem; font-weight: 700; margin: 1.2rem 0 0.6rem 0; }
+.designer-reflection { color: #fafafc; font-size: 1.05rem; margin-bottom: 0.5rem; font-style: italic; }
+
+/* --- Responsive Styles: Collapse nav, stack grids, shrink paddings on small screens --- */
+@media (max-width: 700px) {
+    nav ul {
+        display: none; flex-direction: column; background: #23233b;
+        position: absolute; top: 75px; right: 0; left: 0; z-index: 999;
+        padding: 30px 0 18px 0; border-radius: 0 0 15px 15px;
+    }
+    nav ul.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .testimonials-title, .contact-title, .faq-title, .designer-title, .news-title { font-size: 1.3rem; }
+    .testimonials-section, .contact-section, .faq-section, .designer-section, .news-section { padding: 22px 0 18px 0; }
+    .testimonials-grid, .faq-list, .news-list { padding: 0 0.5rem; }
+    .testimonial-card, .faq-item, .designer-profile-card, .news-card { padding: 1.1rem 0.7rem 1rem 0.7rem; }
+    .designer-photo { width: 90px; height: 90px; }
+}
+
+/* 
+    Shop Section - Modern Card/Grid Layout
+    - Dark background, gold price highlights, rounded cards, responsive.
+*/
+.shop-section {
+    background: #181a20; /* Match main background */
+    border-radius: 18px;
+    padding: 42px 0 38px 0;
+    margin: 38px 0;
+    box-shadow: 0 8px 32px rgba(30,100,200,0.05);
+}
+
+.shop-title {
+    color: #ffce53; /* Gold title */
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: 1.1px;
+    text-align: center;
+}
+
+/* Product grid layout; auto-fit for responsive columns */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    padding: 0 1.5rem;
+    margin: 0 auto 3rem auto;
+    max-width: 1200px;
+}
+
+/* Individual product card */
+.shop-item {
+    background: #22242c;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px 0 rgba(30,100,200,0.07);
+    padding: 1.5rem 1rem 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-height: 400px;
+}
+
+.shop-item:hover {
+    box-shadow: 0 6px 20px 0 rgba(30,100,200,0.15);
+    transform: translateY(-6px) scale(1.02);
+}
+
+.shop-item img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-bottom: 1.2rem;
+    background: #181a20;
+    box-shadow: 0 1px 4px 0 rgba(30,30,50,0.09);
+}
+
+/* Product name and price styling */
+.shop-item h3 {
+    color: #ffce53;
+    font-size: 1.15rem;
+    margin: 0.75rem 0 0.25rem 0;
+    font-weight: 700;
+    text-align: center;
+}
+.price {
+    color: #ffce53;
+    font-weight: bold;
+    font-size: 1.13rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Add to cart button */
+.add-to-cart-btn {
+    background: linear-gradient(90deg, #ffce53 70%, #ffe7a7 100%);
+    color: #22242c;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin-top: auto;
+    transition: background 0.2s, color 0.2s;
+}
+.add-to-cart-btn:hover {
+    background: linear-gradient(90deg, #ffc107 70%, #ffce53 100%);
+    color: #222;
+}
+
+/* Optional: small select dropdown for sizes/colors */
+.shop-form select {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ffce53;
+    background: #181a20;
+    color: #ffce53;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 700px) {
+    .shop-title { font-size: 1.3rem; }
+    .shop-section { padding: 22px 0 18px 0; }
+    .shop-grid { gap: 1rem; padding: 0 0.3rem; }
+    .shop-item { padding: 1.1rem 0.5rem 1rem 0.5rem; }
+    .shop-item img { width: 90vw; max-width: 140px; height: 140px; }
+}
